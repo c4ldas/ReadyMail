@@ -289,7 +289,7 @@ namespace ReadyMailSMTP
             case smtp_send_state_body_type_1:
             case smtp_send_state_body_type_5_1:
             case smtp_send_state_body_type_5P_1:
-                return sendTextMessage(msg, 0 /* text or html */, msg.html.cb || msg.html.content.length() > 0, false);
+                return sendTextMessage(msg, 0 /* text or html */, msg.html.src.valid, false);
 
             case smtp_send_state_body_type_2:  // mixed
             case smtp_send_state_body_type_2P: // mixed

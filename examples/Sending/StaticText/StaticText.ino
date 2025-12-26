@@ -10,7 +10,7 @@
 #define READYMAIL_DEBUG_PORT Serial
 #define ENABLE_FS // Allow filesystem integration
 
-// If message timestamp and/or Date header was not set, 
+// If message timestamp and/or Date header was not set,
 // the message timestamp will be taken from this source, otherwise
 // the default timestamp will be used.
 #if defined(ESP32) || defined(ESP8266)
@@ -80,7 +80,12 @@ void fileCb(File &file, const char *filename, readymail_file_operating_mode mode
 
 void createTextFile()
 {
+    
+#if defined(ESP32)
+    MY_FS.begin(true);
+#else
     MY_FS.begin();
+#endif
 
     File file = MY_FS.open("/static.txt", FILE_OPEN_MODE_WRITE);
     file.print(static_text2);
@@ -114,9 +119,9 @@ void setup()
     Serial.print("Connected with IP: ");
     Serial.println(WiFi.localIP());
     Serial.println();
-    
+
     // If server SSL certificate verification was ignored for this ESP32 WiFiClientSecure.
-    // To verify root CA or server SSL cerificate, 
+    // To verify root CA or server SSL cerificate,
     // please consult your SSL client documentation.
     ssl_client.setInsecure();
 

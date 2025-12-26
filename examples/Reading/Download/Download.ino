@@ -146,7 +146,11 @@ void setup()
     // please consult your SSL client documentation.
     ssl_client.setInsecure();
 
+#if defined(ESP32)
+    MY_FS.begin(true);
+#else
     MY_FS.begin();
+#endif
 
     // In case ESP8266 crashes, please see https://bit.ly/48r4wSe
 

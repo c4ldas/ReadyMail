@@ -77,7 +77,11 @@ void fileCb(File &file, const char *filename, readymail_file_operating_mode mode
 
 void createAttachment()
 {
+#if defined(ESP32)
+    MY_FS.begin(true);
+#else
     MY_FS.begin();
+#endif
 
     File file = MY_FS.open("/orange.png", FILE_OPEN_MODE_WRITE);
     file.print(orangeImg);

@@ -72,7 +72,7 @@ Add this to your `platformio.ini`:
 
 ```ini
 lib_deps =
-  mobizt/ReadyMail@^0.3.7
+  mobizt/ReadyMail@^0.3.8
 ```
 
 > ✅ Supports ESP32, STM32, RP2040, SAMD, Renesas and more — except AVR
