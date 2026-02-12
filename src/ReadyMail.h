@@ -172,7 +172,7 @@ public:
 private:
 };
 
-ReadyMailClass ReadyMail;
+extern ReadyMailClass ReadyMail;
 
 enum readymail_auth_type
 {
