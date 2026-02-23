@@ -51,7 +51,7 @@ namespace ReadyMailSMTP
                 }
                 else if (email[i] == '.')
                     dpos = i;
-                else if (!isalnum(email[i]) && email[i] != '_' && email[i] != '-')
+                else if (!isalnum(email[i]) && email[i] != '_' && email[i] != '-' && email[i] != '+')
                     return false; // invalid character
             }
 
@@ -367,4 +367,5 @@ namespace ReadyMailSMTP
     };
 }
 #endif
+
 #endif
